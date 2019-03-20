@@ -26,14 +26,14 @@ let jsonContractSource = JSON.stringify({
 })
 // 编译
 let output = JSON.parse(solc.compile(jsonContractSource));  
-// console.log(output)
+console.log(output)
 if(Array.isArray(output.errors) && output.errors.length > 0) {
   // 出错了
   console.log(output.errors[0].formattedMessage)
 } else {
-  Object.keys(output.contracts).forEach(name => {
-    const filePath = path.resolve(__dirname, `../src/compiled/${name}.sol`)
-    fs.writeFileSync(filePath, JSON.stringify(output.contracts[name]))
+  Object.keys(output.contracts.CourseList).forEach(name => {
+    const filePath = path.resolve(__dirname, `../src/compiled/${name}.json`)
+    fs.writeFileSync(filePath, JSON.stringify(output.contracts.CourseList[name]))
     console.log(`${filePath} bingo`)
   })
 }
