@@ -9,3 +9,6 @@
 
 ### 编译合约
 `npm run compile`
+1. 每次compile清空文件，重新生成: rimraf 模块可以用来清空文件，npm script命令为`rimraf PATH`
+2. 报错信息打印: 查看打印信息打印错误
+3. 最好能监听，自动compile：使用 onchange 模块, npm script命令为`onchange 'contracts/*.sol' -- npm run compile`
