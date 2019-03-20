@@ -26,7 +26,7 @@ let jsonContractSource = JSON.stringify({
 })
 // 编译
 let output = JSON.parse(solc.compile(jsonContractSource));  
-console.log(output)
+// console.log(output)
 if(Array.isArray(output.errors) && output.errors.length > 0) {
   // 出错了
   console.log(output.errors[0].formattedMessage)
