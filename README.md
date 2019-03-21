@@ -6,12 +6,14 @@
 [solc](https://github.com/ethereum/solc-js) 编译 .sol 文件，生成一个 json（后面部署、测试等需要的数据）
   1. bytecode: 部署合约用的数据
   2. interface: 接口声明，测试使用
+上面两个字段是solidity 0.5.0之前编译合约后有的，现在`abi`对应`interface`，`evm.bytecode.object`对应`bytecode`
 
 ### 编译合约
 `npm run compile:w`
 1. 每次compile清空文件，重新生成: rimraf 模块可以用来清空文件，npm script命令为`rimraf PATH`
 2. 报错信息打印: 查看打印信息打印错误
 3. 最好能监听，自动compile：使用 onchange 模块, npm script命令为`onchange 'contracts/*.sol' -- npm run compile`
+编译后的代码放在`src/compiled`中，编译脚本在`scripts/compile.js`中
 
 ### 课程列表
 1. 每一个课程，是一个单独的合约
